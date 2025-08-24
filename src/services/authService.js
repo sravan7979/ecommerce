@@ -3,13 +3,13 @@ import axios from "axios";
 const API_URL = "http://localhost:8080/back1";
 
 export const login = async (username, password) => {
-  const response = await axios.post(`${API_URL}/login`, { username, password });
+  const response = await axios.post(`${API_URL}/auth/login`, { username, password });
   localStorage.setItem("token", response.data);
   return response.data;
 };
 
 export const signup = async (username, email, password) => {
-  return axios.post(`${API_URL}/signup`, { username, email, password });
+  return axios.post(`${API_URL}/auth/signup`, { username, email, password });
 };
 
 export const logout = () => {
